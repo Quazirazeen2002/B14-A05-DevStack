@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@import "react-toastify/dist/ReactToastify.css";
+
+@theme {
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  /* Single source of truth for the brand gradient. Change these three
+     stops and every gradient-themed element in the app updates together. */
+  --brand-from: #f97316;
+  --brand-via: #ec4899;
+  --brand-to: #8b5cf6;
+  --brand-gradient: linear-gradient(100deg, var(--brand-from), var(--brand-via), var(--brand-to));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #14121a;
+  background-color: #fdfcff;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-brand-gradient {
+  background-image: var(--brand-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.bg-brand-gradient {
+  background-image: var(--brand-gradient);
+}
+
+.bg-brand-gradient-soft {
+  background-image: linear-gradient(100deg, color-mix(in srgb, var(--brand-from) 12%, white), color-mix(in srgb, var(--brand-via) 12%, white));
+}
+
+.ring-brand {
+  --tw-ring-color: color-mix(in srgb, var(--brand-via) 45%, transparent);
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--brand-via) 30%, transparent);
+}
