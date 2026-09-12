@@ -21,6 +21,73 @@ personal "stack" that you can review, trim, and clear whenever you want.
 
 ---
 
+## 📦 What's Inside
+
+**Navbar** — sticky at the top, with the brand mark, centered links, and Sign
+In / Sign Up on desktop. Below the `md` breakpoint it collapses into a
+hamburger + centered logo + auth buttons, with a slide-down link list on
+toggle.
+
+**Hero** — a two-tone heading (plain text plus the shared gradient), a short
+pitch, an "Explore Technologies" button that jumps straight to the catalog,
+and an outlined "Learn More" button.
+
+**Technology catalog** — 15 technologies spanning every required category
+(Frontend, Backend, Database, Language, Styling, DevOps, Tools), loaded from
+`public/technologies.json` at runtime rather than hardcoded into a component.
+Each card shows an icon, badge, name, description, category chip, difficulty,
+and star rating, laid out 3-up on desktop, 2-up on tablet, and 1-up on mobile.
+
+**Your Stack sidebar** — sits beside the grid on desktop and stacks below it
+on mobile. Shows an empty-state placeholder until something is added, then
+lists each selected technology with a one-click remove (✕), plus a
+"Remove All" action once the stack isn't empty. Adding a technology that's
+already in the stack is blocked with a warning instead of a duplicate entry,
+and that card's button flips to a disabled "✓ Added to Stack" state.
+
+**Footer** — brand block with social links, three link groups (Product,
+Company, Legal), and a bottom bar with copyright and legal links.
+
+**Toasts & loading state** — every add, duplicate-add attempt, remove, and
+remove-all fires a react-toastify notification, and the catalog fetch shows a
+spinner (via `useTechnologies.js` + `Loader.jsx`) while `technologies.json` is
+loading.
+
+---
+
+## 🚀 Getting Started
+
+```bash
+npm install
+npm run dev      # start the local dev server
+npm run build    # production build into dist/
+npm run preview  # preview the production build locally
+```
+
+---
+
+## 🗂️ Project Structure
+
+```
+public/
+  technologies.json   # the technology catalog, fetched at runtime
+src/
+  App.jsx             # owns the "stack" state and toast notifications
+  index.css           # Tailwind import + the shared gradient tokens
+  hooks/
+    useTechnologies.js # fetches the JSON catalog, exposes loading/error state
+  components/
+    Navbar.jsx
+    Hero.jsx
+    TechnologiesSection.jsx
+    TechCard.jsx
+    StackSidebar.jsx
+    Loader.jsx
+    Footer.jsx
+```
+
+---
+
 ## ✨ Features
 
 1. **Build-your-own stack, live.** Add any technology to your stack with one
